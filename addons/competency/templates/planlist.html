@@ -4,6 +4,8 @@
             <ion-refresher pulling-text="{{ 'mm.core.pulltorefresh' | translate }}" ng-if="plansLoaded" on-refresh="refreshLearningPlans()">
             </ion-refresher>
             <mm-loading hide-until="plansLoaded">
+              <div class="myplans">
+               <div class="planssheader"></div>
                 <ul class="list">
                     <li ng-if="plans.length == 0" class="item">{{ 'mma.competency.noplanswerecreated' | translate }}</li>
                     <li ng-repeat="plan in plans">
@@ -13,6 +15,7 @@
                         </a>
                     </li>
                 </ul>
+                </div>
             </mm-loading>
         </ion-content>
     </mm-split-view>
