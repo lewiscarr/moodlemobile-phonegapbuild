@@ -2,21 +2,21 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android = "http://schemas.android.com/apk/res/android"
-        id        = "com.moodle.moodlemobile"
-        versionCode = "2014"
-        version   = "3.1.2">
+        id        = "com.moodlerooms.moodleroomsmobile"
+        versionCode = "20160"
+        version   = "3.2.0">
     <name>Moodle Mobile</name>
 
     <description>
-        Moodle Mobile official app
+        Moodlerooms Mobile official app
     </description>
 
-    <author href="http://moodle.com" email="mobile@moodle.com">
-        Moodle Pty Ltd
+    <author href="http://moodlerooms.com" email="mobile@moodlerooms.com">
+        Moodlerooms
     </author>
 
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
-        <string>3.1.2</string>
+        <string>3.2.0</string>
     </gap:config-file>
 
     <gap:platform name="ios" />
@@ -34,7 +34,7 @@
 
     <allow-intent href="*" />
 
-    <preference name="phonegap-version" value="cli-6.1.0" />
+    <preference name="phonegap-version" value="cli-6.3.0" />
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
@@ -44,6 +44,7 @@
     <preference name="load-url-timeout" value="60000" />
 
     <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-installLocation" value="auto" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="BackupWebStorage" value="none" />
@@ -68,15 +69,18 @@
     <icon src="resources/ios/icon/icon-small@3x.png"      gap:platform="ios"      width="87" height="87" />
     <icon src="resources/ios/icon/icon-40.png"            gap:platform="ios"      width="40" height="40" />
     <icon src="resources/ios/icon/icon-40@2x.png"         gap:platform="ios"      width="80" height="80" />
+    <icon src="resources/ios/icon/icon-50.png"            gap:platform="ios"      width="50" height="50" />
+    <icon src="resources/ios/icon/icon-50@2x.png"         gap:platform="ios"      width="100" height="100" />
     <icon src="resources/ios/icon/icon-60.png"            gap:platform="ios"      width="60" height="60" />
     <icon src="resources/ios/icon/icon-60@2x.png"         gap:platform="ios"      width="120" height="120" />
     <icon src="resources/ios/icon/icon-60@3x.png"         gap:platform="ios"      width="180" height="180" />
-    <icon src="resources/ios/icon/icon-57.png"            gap:platform="ios"      width="57" height="57" />
+    <icon src="resources/ios/icon/icon.png"               gap:platform="ios"      width="57" height="57" />
     <icon src="resources/ios/icon/icon-72.png"            gap:platform="ios"      width="72" height="72" />
     <icon src="resources/ios/icon/icon-76.png"            gap:platform="ios"      width="76" height="76" />
+    <icon src="resources/ios/icon/icon-83.5@2x.png"       gap:platform="ios"      width="167" height="167" />
     <icon src="resources/ios/icon/icon-40@3x.png"         gap:platform="ios"      width="120" height="120" />
     <icon src="resources/ios/icon/icon-76@2x.png"         gap:platform="ios"      width="152" height="152" />
-    <icon src="resources/ios/icon/icon-57@2x.png"         gap:platform="ios"      width="114" height="114" />
+    <icon src="resources/ios/icon/icon@2x.png"            gap:platform="ios"      width="114" height="114" />
     <icon src="resources/ios/icon/icon-72@2x.png"         gap:platform="ios"      width="144" height="144" />
 
     <gap:splash src="splash.png" />
@@ -106,7 +110,11 @@
     <gap:splash src="resources/ios/splash/Default~iphone.png"             gap:platform="ios" width="320" height="480"/>
 
     <gap:plugin name="cordova-plugin-camera" source="npm" />
-    <gap:plugin name="cordova-plugin-media-capture" source="npm" />
+    <gap:plugin name="cordova-plugin-media-capture" source="npm">
+        <param name="CAMERA_USAGE_DESCRIPTION" value="We'd like to access your camera to let you take a photo"/>
+        <param name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="We'd like to access your photo library to let you pick a photo"/>
+        <param name="MICROPHONE_USAGE_DESCRIPTION" value="We'd like to access your microphone to let you record an audio"/>
+    </gap:plugin>
     <gap:plugin name="cordova-plugin-device" source="npm" />
     <gap:plugin name="cordova-plugin-file" source="npm" />
     <gap:plugin name="cordova-plugin-file-transfer" source="npm" />
@@ -116,19 +124,19 @@
     <gap:plugin name="cordova-plugin-statusbar" source="npm" version="2.1.2" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
+    <gap:plugin name="cordova-universal-clipboard" source="npm" />
 
     <gap:plugin name="phonegap-plugin-push" source="npm" version="1.7.0">
         <param name="SENDER_ID" value="694767596569" />
     </gap:plugin>
-    <gap:plugin name="ch.ti8m.documenthandler" />
     <gap:plugin name="cordova-plugin-customurlscheme" source="npm">
         <param name="URL_SCHEME" value="moodlemobile" />
     </gap:plugin>
     <gap:plugin name="ionic-plugin-keyboard" source="npm" />
-    <gap:plugin name="de.appplant.cordova.plugin.local-notification" source="npm" />
-    
-     <gap:plugin name="ch.ti8m.documenthandler"  />
     <gap:plugin name="cordova-plugin-zip" source="npm" />
+    <gap:plugin name="cordova-plugin-local-notifications-mm" source="npm" />
+    <gap:plugin name="net.tunts.webintent" spec="https://github.com/Tunts/WebIntent.git" source="git" />
+    <gap:plugin name="ch.ti8m.documenthandler" spec="https://github.com/ti8m/DocumentHandler.git" source="git" />
 
     <gap:config-file platform="android" parent="/manifest">
          <application android:debuggable="true" />
