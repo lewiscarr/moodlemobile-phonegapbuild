@@ -1,10 +1,10 @@
 <ion-view>
     <ion-nav-title><mm-format-text watch="true">{{ title }}</mm-format-text></ion-nav-title>
-    <ion-content delegate-handle="mmSectionScroll" mm-state-class>
+    <ion-content delegate-handle="mmSectionScroll" mm-state-class padding="true">
         <ion-refresher pulling-text="{{ 'mm.core.pulltorefresh' | translate }}" ng-if="sectionLoaded" on-refresh="doRefresh()">
         </ion-refresher>
         <mm-loading hide-until="sectionLoaded" loading-padding-top="loadingPaddingTop">
-
+  <div class="coursesectionbg"></div>
             <section class="card" ng-if="summary">
                 <!-- Only displayed when 1 section per page. -->
                 <div class="item item-text-wrap">
@@ -12,7 +12,7 @@
                 </div>
             </section>
 
-            <section class="card" ng-repeat="section in sections" ng-if="section.modules.length > 0 || section.summary != ''">
+            <section class="card" ng-repeat="section in sections" ng-if="sectionHasContent(section)">
                 <!-- Title and summary are displayed when multiple sections per page. -->
                 <div class="item item-divider" ng-if="allSections">
                     <h2><mm-format-text watch="true">{{ section.name }}</mm-format-text></h2>
@@ -22,7 +22,7 @@
                     <mm-format-text class="mm-content-with-float">{{ section.summary }}</mm-format-text>
                 </div>
 
-                <a class="item item-text-wrap mm-course-module-handler {{class}}" ng-repeat="module in section.modules" ng-click="action($event)" ng-class="{'item-button-right': buttons && buttons.length > 0, 'item-media': icon, 'item-completion': module.completionstatus}" ng-controller="module._controller" title="{{ title }}">
+                <a class="item item-text-wrap mm-course-module-handler {{class}}" ng-repeat="module in section.modules" ng-click="action($event)" ng-class="{'item-button-right': (buttons && buttons.length > 0) || spinner, 'item-media': icon, 'item-completion': module.completionstatus}" ng-controller="module._controller" title="{{ title }}">
 
                     <img ng-src="{{ icon }}" alt="" role="presentation" ng-if="icon">
                     <mm-format-text watch="true">{{ title }}</mm-format-text>
