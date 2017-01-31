@@ -241,6 +241,8 @@
     "mm.login.newsitedescription": "Please enter the URL of your Moodle site. Note that it might not be configured to work with this app.",
     "mm.login.notloggedin": "You need to be logged in.",
     "mm.login.password": "Password",
+    "mm.login.firsttime": "First time here?",
+    "mm.login.startsignup": "Sign Up",
     "mm.login.passwordrequired": "Password required",
     "mm.login.reconnect": "Reconnect",
     "mm.login.reconnectdescription": "Your authentication token is invalid or has expired, you have to reconnect to the site.",
